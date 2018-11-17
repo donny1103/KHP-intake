@@ -143,7 +143,7 @@ class PageEightChild extends Component {
           </div>
         </div> 
         <div style={{ textAlign:'center', marginTop:'200px' }}>
-          <AwesomeButton type="primary">This is how I Feel</AwesomeButton>
+          <AwesomeButton action={()=>{this.props.setTwoStateValues('sadValue', this.state.sadValue, 'scaredValue', this.state.scaredValue)}} type="primary">This is how I Feel</AwesomeButton>
         </div>
       </div>
     );

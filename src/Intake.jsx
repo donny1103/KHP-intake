@@ -47,7 +47,7 @@ class Intake extends Component {
     });
   };
 
-  setStateValue = (key, value) => {
+  setStateValue = (key, value,) => {
     console.log("in setState value");
     this.setState({ [key]: value, pageIndex: this.state.pageIndex + 1 }, () => {
       this.postUserObjectToServer();
@@ -56,6 +56,13 @@ class Intake extends Component {
     });
   };
 
+  setTwoStateValues = (key, value, keyTwo, valueTwo) =>{
+    this.setState({ [key]: value, [keyTwo]:valueTwo, pageIndex:this.state.pageIndex + 1 }, () => {
+        this.postUserObjectToServer();
+        this.pageHandler();
+        console.log(this.state);
+      });
+  }
   setPageIndex = index => {
     this.setState({ pageIndex: index });
   };
@@ -126,7 +133,7 @@ class Intake extends Component {
         return (
           <PageEightChild
             setPageIndex={this.setPageIndex}
-            setStateValue={this.setStateValue}
+            setTwoStateValues={this.setTwoStateValues}
             name={this.state.name}
           />
         );
