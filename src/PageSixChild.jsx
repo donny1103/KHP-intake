@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
-class PageThreeChild extends Component {
+class PageSixChild extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -23,4 +23,4 @@ class PageThreeChild extends Component {
   }
 }
 
-export default PageThreeChild;
+export default PageSixChild;
