@@ -8,16 +8,42 @@ class PageSixChild extends Component {
     this.state = {};
   }
 
-  componentDidMount() {
-    console.log('page 3 component did mount')
-    setTimeout(()=>{this.props.setPageIndex(4)}, 1500);
+  onChange = event => {
+    this.setState({ name: event.target.value }, () => {
+      console.log(this.state);
+    });
+  };
+  onSubmit(event) {
+    event.preventDefault();
+
+    console.log("form submitted");
   }
   render() {
-    const { age } = this.props;
-    console.log("in page 3", this.props);
+    console.log("in page 6", this.props);
     return (
-      <div className="page-three-child">
-        <div style={{ fontSize: "50px" }}>Nice, {age}! Interstitial here</div>
+      <div className="page-six-child">
+        <div style={{ textAlign: "center" }}>
+          <div style={{ display: "flex", flexDirection: "column", height:'100%' }}>
+            <div style={{ display: "inline-display" }}>
+              <div className="flex-1 intake-title">
+                <div style={{ fontSize: "50px" }}>What is your name?</div>
+              </div>
+
+              <div className="flex-1">
+                <input
+                  type="text"
+                  name="name"
+                  onChange={event => {
+                    this.onChange(event);
+                  }}
+                />
+              </div>
+              <div className="flex-1">
+                <AwesomeButton action={()=>{this.props.setStateValue('name', this.state.name)}}type="primary">Let me know!</AwesomeButton>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

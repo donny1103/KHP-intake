@@ -4,9 +4,11 @@ import PageTwoChild from "./PageTwoChild.jsx";
 import PageThreeChild from "./PageThreeChild.jsx";
 import PageFourChild from "./PageFourChild.jsx";
 import PageFiveChild from "./PageFiveChild.jsx";
-import PageSixChild from "./PageFiveChild.jsx"
+import PageSixChild from "./PageSixChild.jsx";
+import PageSevenChild from "./PageSevenChild.jsx";
+import PageEightChild from "./PageEightChild.jsx";
 import "./App.css";
-import axios from 'axios';
+import axios from "axios";
 
 class Intake extends Component {
   constructor(props) {
@@ -25,19 +27,10 @@ class Intake extends Component {
   }
 
   postUserObjectToServer = () => {
-
-    axios.post('http://localhost:9000/user', this.state).then(console.log).catch(console.error('Error'))
-   
-    // fetch("http://localhost:9000/user", {
-    //   method: "POST",
-    //   headers: new Headers(),
-    //   mode: "cors",
-    //   credentials: 'same-origin',
-    //   body: JSON.stringify(this.state)
-    // })
-    //   .then(res => res.json())
-    //   .then(data => console.log(data))
-    //   .catch(err => console.log(err));
+    axios
+      .post("http://localhost:9000/user", this.state)
+      .then(console.log)
+      .catch(console.error("Error"));
   };
   setAgeRange = ageRange => {
     console.log("in setAgeRange");
@@ -56,13 +49,13 @@ class Intake extends Component {
 
   setStateValue = (key, value) => {
     console.log("in setState value");
-    this.setState({ [key]: value}, () => {
+    this.setState({ [key]: value, pageIndex: this.state.pageIndex + 1 }, () => {
       this.postUserObjectToServer();
       this.pageHandler();
-      console.log(this.state)
+      console.log(this.state);
     });
-  }
- 
+  };
+
   setPageIndex = index => {
     this.setState({ pageIndex: index });
   };
@@ -103,20 +96,38 @@ class Intake extends Component {
             setStateValue={this.setStateValue}
           />
         );
-        case 5:
+      case 5:
         console.log("in case 5");
         return (
           <PageFiveChild
-            
+            setPageIndex={this.setPageIndex}
             setStateValue={this.setStateValue}
           />
         );
-        case 6:
+      case 6:
         console.log("in case 6");
         return (
           <PageSixChild
-            
+            setPageIndex={this.setPageIndex}
             setStateValue={this.setStateValue}
+          />
+        );
+      case 7:
+        console.log("in case 7");
+        return (
+          <PageSevenChild
+            setPageIndex={this.setPageIndex}
+            setStateValue={this.setStateValue}
+            name={this.state.name}
+          />
+        );
+        case 8:
+        console.log("in case 8");
+        return (
+          <PageEightChild
+            setPageIndex={this.setPageIndex}
+            setStateValue={this.setStateValue}
+            name={this.state.name}
           />
         );
       default:
