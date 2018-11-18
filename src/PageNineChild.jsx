@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import QueueCounter from "./QueueCounter";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 class PageNineChild extends Component {
@@ -92,6 +93,7 @@ class PageNineChild extends Component {
             </div>
           </div>
         </div>
+        <QueueCounter count={this.props.queueSize} />
       </div>
     );
   }

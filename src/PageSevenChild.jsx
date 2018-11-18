@@ -3,6 +3,7 @@ import "./App.css";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 import Typing from "react-typing-animation";
+import QueueCounter from "./QueueCounter";
 class PageSevenChild extends Component {
   constructor(props) {
     super(props);
@@ -31,7 +32,7 @@ class PageSevenChild extends Component {
               soon.
               <br />
               <br />
-              In the top left corner you can see your place in line.
+              The green box in the top left corner shows you your place in line.
             </div>
             <div
               style={{
@@ -58,6 +59,7 @@ class PageSevenChild extends Component {
             </AwesomeButton>
           </div>
         </div>
+        <QueueCounter count={this.props.queueSize} />
       </div>
     );
   }

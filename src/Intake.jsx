@@ -94,7 +94,7 @@ class Intake extends Component {
   pageHandler = () => {
     const { age, ageRange } = this.state;
     if (age === 0 && ageRange === 0) {
-      return <PageEightChild setStateValue={this.setStateValue} />;
+      return <PageOne setStateValue={this.setStateValue} />;
     } else if (age === 0 && ageRange === "child") {
       return <PageTwoChild setStateValue={this.setStateValue} />;
     } else if (age === 0 && ageRange === "adolescent") {
@@ -145,6 +145,7 @@ class Intake extends Component {
             setStateValue={this.setStateValue}
             name={this.state.name}
             currentIndex={this.state.pageIndex}
+            count={this.state.queueSize}
           />
         );
       case 8:
@@ -153,6 +154,7 @@ class Intake extends Component {
             setPageIndex={this.setPageIndex}
             setTwoStateValues={this.setTwoStateValues}
             name={this.state.name}
+            count={this.state.queueSize}
           />
         );
       case 9:
@@ -161,6 +163,7 @@ class Intake extends Component {
             setPageIndex={this.setPageIndex}
             setStateValue={this.setStateValue}
             name={this.state.name}
+            count={this.state.queueSize}
           />
         );
       case 10:
@@ -169,6 +172,7 @@ class Intake extends Component {
             setPageIndex={this.setPageIndex}
             setStateValue={this.setStateValue}
             name={this.state.name}
+            count={this.state.queueSize}
           />
         );
       case 11:
@@ -177,6 +181,7 @@ class Intake extends Component {
             setPageIndex={this.setPageIndex}
             setStateValue={this.setStateValue}
             name={this.state.name}
+            count={this.state.queueSize}
           />
         );
       default:
@@ -201,7 +206,7 @@ class Intake extends Component {
     return (
       <div className="intake-root-div">
         {this.pageHandler()}
-        <QueueCounter count={this.state.queueSize} />
+       
       </div>
     );
   }

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
-
+import QueueCounter from "./QueueCounter";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Slider from "@material-ui/lab/Slider";
@@ -144,6 +144,7 @@ class PageEightChild extends Component {
         <div style={{ textAlign:'center', marginTop:'360px' }}>
           <AwesomeButton style={{width:'200px', height:'200px', fontSize:'20px'}} action={()=>{this.props.setTwoStateValues('sadValue', this.state.sadValue, 'scaredValue', this.state.scaredValue)}} type="primary">This is how I feel</AwesomeButton>
         </div>
+        <QueueCounter count={this.props.queueSize} />
       </div>
     );
   }
