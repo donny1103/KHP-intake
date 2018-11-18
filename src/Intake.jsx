@@ -8,6 +8,7 @@ import PageSixChild from "./PageSixChild.jsx";
 import PageSevenChild from "./PageSevenChild.jsx";
 import PageEightChild from "./PageEightChild.jsx";
 import QueueCounter from "./QueueCounter"
+import PageNineChild from "./PageNineChild.jsx"
 import "./App.css";
 
 class Intake extends Component {
@@ -66,7 +67,7 @@ class Intake extends Component {
     });
   };
 
-  setStateValue = (key, value) => {
+  setStateValue = (key, value,) => {
     console.log("in setState value");
     this.setState({ [key]: value, pageIndex: this.state.pageIndex + 1 }, () => {
       this.postUserObjectToServer();
@@ -75,6 +76,13 @@ class Intake extends Component {
     });
   };
 
+  setTwoStateValues = (key, value, keyTwo, valueTwo) =>{
+    this.setState({ [key]: value, [keyTwo]:valueTwo, pageIndex:this.state.pageIndex + 1 }, () => {
+        this.postUserObjectToServer();
+        this.pageHandler();
+        console.log(this.state);
+      });
+  }
   setPageIndex = index => {
     this.setState({ pageIndex: index });
   };
@@ -82,7 +90,7 @@ class Intake extends Component {
     console.log("in page handler");
     const { age, ageRange } = this.state;
     if (age === 0 && ageRange === 0) {
-      return <PageOne setAgeRange={this.setAgeRange} />;
+      return <PageNineChild setAgeRange={this.setAgeRange} />;
     } else if (age === 0 && ageRange === "child") {
       return <PageTwoChild setAge={this.setAge} />;
     } else if (age === 0 && ageRange === "adolescent") {
@@ -144,6 +152,15 @@ class Intake extends Component {
         console.log("in case 8");
         return (
           <PageEightChild
+            setPageIndex={this.setPageIndex}
+            setTwoStateValues={this.setTwoStateValues}
+            name={this.state.name}
+          />
+        );
+        case 9:
+        console.log("in case 9");
+        return (
+          <PageNineChild
             setPageIndex={this.setPageIndex}
             setStateValue={this.setStateValue}
             name={this.state.name}
