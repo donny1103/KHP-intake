@@ -60,7 +60,7 @@ class PageTenChild extends Component {
                           type="checkbox"
                           value={item.value}
                         />
-                        {`\xa0\xa0\xa0\xa0${item.label}`}
+                     <div className='helv-body' style={{marginTop:'-55px'}}>{`\xa0\xa0\xa0\xa0${item.label}`}</div>
                       </div>
                     );
                   })}

@@ -30,7 +30,7 @@ class PageNineChild extends Component {
       <div className="page-nine-child">
         <div style={{ textAlign: "center", marginTop:'50px', width:'100vw' }}>
           <div style={{ display: "inline-block" }}>
-            <div style={{ fontSize: "50px" }}>What's your favorite color?</div>
+            <div className='helv-rounded' style={{ fontSize: "50px" }}>What's your favorite color?</div>
             <div
               style={{
                 display: "flex",

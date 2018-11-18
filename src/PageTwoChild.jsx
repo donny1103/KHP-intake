@@ -39,7 +39,7 @@ class PageTwo extends Component {
             marginTop: "50px"
           }}
         >
-          <div className='child-page-two-button-text'>{age}</div>
+          <div className='child-page-two-button-text'> <div className='helv-body'>{age}</div></div>
         </AwesomeButton>
       </div>
     );
