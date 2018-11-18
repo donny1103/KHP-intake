@@ -2,6 +2,13 @@
 
 .intake-root-div {}
 
+
+@font-face {
+  font-family: 'HelveticaRoundedLTStd-Bd';
+  src: url('/fonts/HelveticaRoundedLTStd-Bd.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 .intake-title {
   margin: 0;
   padding: 0;
