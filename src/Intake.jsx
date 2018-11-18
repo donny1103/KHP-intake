@@ -14,7 +14,7 @@ import "./App.css";
 class Intake extends Component {
   constructor(props) {
     super(props);
-    this.state = { pageIndex: 1, age: 0, ageRange: 0 };
+    this.state = { pageIndex: 1, age: 0, ageRange: 0, type: 'user', time: new Date()};
   }
 
   componentDidMount() {
@@ -24,6 +24,8 @@ class Intake extends Component {
     }
     this.socket.onmessage = e => {
       const incoming = JSON.parse(e.data);
+      console.log(incoming);
+
       switch (incoming.type) {
         case 'id':
           this.setState({userId: incoming.id});
@@ -46,6 +48,9 @@ class Intake extends Component {
   }
 
   postUserObjectToServer = () => {
+    console.log('Sending stuff');
+    console.log(this.state);
+
     this.socket.send(JSON.stringify(this.state))
     // axios
     //   .post("http://localhost:9000/user", this.state)
@@ -90,7 +95,7 @@ class Intake extends Component {
     console.log("in page handler");
     const { age, ageRange } = this.state;
     if (age === 0 && ageRange === 0) {
-      return <PageNineChild setAgeRange={this.setAgeRange} />;
+      return <PageOne setAgeRange={this.setAgeRange} />;
     } else if (age === 0 && ageRange === "child") {
       return <PageTwoChild setAge={this.setAge} />;
     } else if (age === 0 && ageRange === "adolescent") {
