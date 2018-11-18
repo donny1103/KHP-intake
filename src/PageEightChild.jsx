@@ -49,12 +49,11 @@ class PageEightChild extends Component {
               width: "70vw",
               display: "inline-block"
             }}
-          >
-            I'm talking to someone else right now {name}, but we will chat so
-            soon. Can you answer a few more questions for me?
-          </div>
+         / >
+         
+       
           <div
-            style={{ fontSize: "30px", marginTop: "80px", marginLeft: "50px" }}
+            style={{ fontSize: "60px", marginTop: "80px", marginLeft: "50px" }}
           >
             How are you feeling right now?
           </div>
@@ -66,7 +65,7 @@ class PageEightChild extends Component {
         >
           <div style={{ display: "inline-block" }}>
             <div style={{ width: "800px", marginTop: "50px" }}>
-              <div style={{ marginTop: "10px" }}>Happy/Sad</div>
+              <div style={{ marginTop: "10px", fontSize:'40px' }}>Happy/Sad</div>
               <div
                 style={{
                   display: "flex",
@@ -108,7 +107,7 @@ class PageEightChild extends Component {
         >
           <div style={{ display: "inline-block" }}>
             <div style={{ width: "800px", marginTop: "120px" }}>
-              <div style={{ marginTop: "10px" }}>Safe/Scared</div>
+              <div style={{ marginTop: "10px", fontSize:'40px' }}>Safe/Scared</div>
               <div
                 style={{
                   display: "flex",
@@ -143,7 +142,7 @@ class PageEightChild extends Component {
           </div>
         </div> 
         <div style={{ textAlign:'center', marginTop:'200px' }}>
-          <AwesomeButton action={()=>{this.props.setTwoStateValues('sadValue', this.state.sadValue, 'scaredValue', this.state.scaredValue)}} type="primary">This is how I Feel</AwesomeButton>
+          <AwesomeButton style={{width:'200px', height:'150px', fontSize:'20px'}} action={()=>{this.props.setTwoStateValues('sadValue', this.state.sadValue, 'scaredValue', this.state.scaredValue)}} type="primary">This is how I feel</AwesomeButton>
         </div>
       </div>
     );

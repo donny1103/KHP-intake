@@ -26,6 +26,7 @@ class PageFiveChild extends Component {
     return (
       <div className="page-eleven-child">
       <div style={{textAlign:'center', fontSize:'60px', marginTop:'50px'}}>{this.state.text}</div>
+      
       </div>
     );
   }
