@@ -23,6 +23,7 @@ class Intake extends Component {
       type: 'user',
       time: new Date(),
       queueSize: 100,
+      chat: false,
     };
   }
 
@@ -42,6 +43,11 @@ class Intake extends Component {
         case 'updateCount':
           if (incoming.count < this.state.queueSize) {
             this.setState({queueSize: incoming.count});
+          }
+          break;
+        case 'startChat':
+          if (incoming.id === this.state.userId) {
+            this.setState({chat: true});
           }
           break;
         default:
