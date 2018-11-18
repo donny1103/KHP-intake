@@ -28,7 +28,7 @@ class PageSixChild extends Component {
           >
             <div style={{ display: "inline-display" }}>
               <div className="flex-1 intake-title">
-                <div style={{ fontSize: "100px", marginTop:'200px'}}>What is your name?</div>
+                <div  style={{ fontSize: "100px", marginTop:'200px'}}>What is your name?</div>
               </div>
 
               <div className="flex-1">
@@ -36,6 +36,7 @@ class PageSixChild extends Component {
                 style={{height:'200px', fontSize:'100px', textAlign:'center', marginTop:'50px'}}
                   type="text"
                   name="name"
+                  className='helv-body'
                   onChange={event => {
                     this.onChange(event);
                   }}
@@ -49,7 +50,7 @@ class PageSixChild extends Component {
                   style={{height:'200px', width:'200px', marginTop:"50px", fontSize:'35px', lineHeight:'40px'}}
                   type="primary"
                 >
-                  Let me know!
+                 <div className='helv-body'>Let me know!</div>  
                 </AwesomeButton>
               </div>
             </div>

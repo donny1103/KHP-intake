@@ -11,6 +11,7 @@ import QueueCounter from "./QueueCounter";
 import PageNineChild from "./PageNineChild.jsx";
 import PageTenChild from "./PageTenChild.jsx";
 import PageElevenChild from "./PageElevenChild.jsx";
+import StartChatPage from "./StartChatPage.jsx"
 import "./App.css";
 
 class Intake extends Component {
@@ -28,7 +29,7 @@ class Intake extends Component {
   }
 
   componentDidMount() {
-    this.socket = new WebSocket("ws://localhost:3001");
+    this.socket = new WebSocket("ws://10.0.78.176:3001");
     this.socket.onopen = event => {
       console.log("WS CONNECTED");
     };
@@ -211,7 +212,7 @@ class Intake extends Component {
   render() {
     return (
       <div className="intake-root-div">
-        {this.pageHandler()}
+        {this.state.chat ? <StartChatPage/> : this.pageHandler()}
        
       </div>
     );

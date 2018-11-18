@@ -18,15 +18,16 @@ class PageSevenChild extends Component {
     return (
       <div className="page-seven-child">
         <div style={{ textAlign: "center" }}>
-          <div style={{ display: "inline-block" }}>
+          <div  className='helv-rounded' style={{ display: "inline-block" }}>
             <div className="page-seven-title">Nice to meet you {name} :)</div>
             <div
               style={{
                 fontSize: "35px",
                 marginTop: "50px",
-                width: "900px",
+                width: "1100px",
                 color: "white"
               }}
+              className='helv-body'
             >
               I'm talking to another child right now {name}, but we will talk
               soon.
@@ -38,9 +39,11 @@ class PageSevenChild extends Component {
               style={{
                 fontSize: "35px",
                 marginTop: "50px",
-                width: "900px",
+                width: "1100px",
                 color: "white"
+                
               }}
+              className='helv-body'
             >
               Can you answer a few more questions for me?
             </div>
@@ -48,14 +51,14 @@ class PageSevenChild extends Component {
               style={{
                 width: "200px",
                 height: "200px",
-                marginTop: "100px",
+                marginTop: "200px",
                 fontSize: "35px"
               }}
               action={() => {
                 this.clickHandler();
               }}
             >
-              Ok!
+              <div className='helv-body'> Ok!</div>
             </AwesomeButton>
           </div>
         </div>

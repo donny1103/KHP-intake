@@ -19,6 +19,7 @@ class PageFiveChild extends Component {
     return (
       <div className="page-eleven-child">
         <div
+        className='helv-rounded'
           style={{ textAlign: "center", fontSize: "60px", marginTop: "120px" }}
         >
           Would you like to ...

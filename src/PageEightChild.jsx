@@ -53,6 +53,7 @@ class PageEightChild extends Component {
          
        
           <div
+          className='helv-rounded'
             style={{ fontSize: "60px", marginLeft: "50px" }}
           >
             How are you feeling right now?
