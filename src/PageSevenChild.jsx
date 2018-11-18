@@ -59,7 +59,7 @@ class PageSevenChild extends Component {
             </AwesomeButton>
           </div>
         </div>
-        <QueueCounter count={this.props.queueSize} />
+        <QueueCounter count={this.props.count} />
       </div>
     );
   }

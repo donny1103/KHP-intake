@@ -50,8 +50,8 @@ class PageEightChild extends Component {
               display: "inline-block"
             }}
          / >
-         
-       
+
+
           <div
             style={{ fontSize: "60px", marginLeft: "50px" }}
           >
@@ -99,9 +99,9 @@ class PageEightChild extends Component {
             </div>
           </div>
         </div>
-        
-          
-     
+
+
+
        <div
           style={{ textAlign: "center", position: "relative", height: "100px" }}
         >
@@ -140,11 +140,11 @@ class PageEightChild extends Component {
               </div>
             </div>
           </div>
-        </div> 
+        </div>
         <div style={{ textAlign:'center', marginTop:'360px' }}>
           <AwesomeButton style={{width:'200px', height:'200px', fontSize:'20px'}} action={()=>{this.props.setTwoStateValues('sadValue', this.state.sadValue, 'scaredValue', this.state.scaredValue)}} type="primary">This is how I feel</AwesomeButton>
         </div>
-        <QueueCounter count={this.props.queueSize} />
+        <QueueCounter count={this.props.count} />
       </div>
     );
   }

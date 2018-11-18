@@ -93,7 +93,7 @@ class PageNineChild extends Component {
             </div>
           </div>
         </div>
-        <QueueCounter count={this.props.queueSize} />
+        <QueueCounter count={this.props.count} />
       </div>
     );
   }
