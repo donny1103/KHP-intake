@@ -9,6 +9,7 @@ import PageSevenChild from "./PageSevenChild.jsx";
 import PageEightChild from "./PageEightChild.jsx";
 import QueueCounter from "./QueueCounter"
 import PageNineChild from "./PageNineChild.jsx"
+import PageTenChild from "./PageTenChild.jsx"
 import "./App.css";
 
 class Intake extends Component {
@@ -90,7 +91,7 @@ class Intake extends Component {
     console.log("in page handler");
     const { age, ageRange } = this.state;
     if (age === 0 && ageRange === 0) {
-      return <PageNineChild setAgeRange={this.setAgeRange} />;
+      return <PageOne setAgeRange={this.setAgeRange} />;
     } else if (age === 0 && ageRange === "child") {
       return <PageTwoChild setAge={this.setAge} />;
     } else if (age === 0 && ageRange === "adolescent") {
@@ -161,6 +162,15 @@ class Intake extends Component {
         console.log("in case 9");
         return (
           <PageNineChild
+            setPageIndex={this.setPageIndex}
+            setStateValue={this.setStateValue}
+            name={this.state.name}
+          />
+        );
+        case 10:
+        console.log("in case 10");
+        return (
+          <PageTenChild
             setPageIndex={this.setPageIndex}
             setStateValue={this.setStateValue}
             name={this.state.name}

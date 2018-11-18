@@ -13,7 +13,7 @@ class PageNineChild extends Component {
     return (
       <div style={{ flex: 1, height:'140px ' }}>
         <button
-        // onClick={()=>{this.props.setStateValue('favoriteColor', color)}}
+        onClick={()=>{this.props.setStateValue('favoriteColor', color)}}
           type="primary"
           className="round-button"
           style={{ backgroundColor: color }}
