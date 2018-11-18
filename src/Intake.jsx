@@ -16,7 +16,14 @@ import "./App.css";
 class Intake extends Component {
   constructor(props) {
     super(props);
-    this.state = { pageIndex: 1, age: 0, ageRange: 0 };
+    this.state = {
+      pageIndex: 1,
+      age: 0,
+      ageRange: 0,
+      type: 'user',
+      time: new Date(),
+      queueSize: 100,
+    };
   }
 
   componentDidMount() {
@@ -26,21 +33,41 @@ class Intake extends Component {
     };
     this.socket.onmessage = e => {
       const incoming = JSON.parse(e.data);
+      console.log(incoming);
+
       switch (incoming.type) {
         case "id":
           this.setState({ userId: incoming.id });
           break;
-        case "updateCount":
-          this.setState({ queueSize: incoming.count });
+        case 'updateCount':
+          if (incoming.count < this.state.queueSize) {
+            this.setState({queueSize: incoming.count});
+          }
           break;
         default:
           console.log("INCOMING DATA NOT RECOGNIZED");
       }
-    };
+    }
   }
 
   postUserObjectToServer = () => {
-    // this.socket.send(JSON.stringify(this.state))
+    console.log('Sending stuff');
+    console.log(this.state);
+    this.socket.send(JSON.stringify(this.state))
+  };
+  setAgeRange = ageRange => {
+    console.log("in setAgeRange");
+    this.setState({ ageRange: ageRange, pageIndex: 2 }, () => {
+      this.postUserObjectToServer();
+      this.pageHandler();
+    });
+  };
+  setAge = age => {
+    console.log("in setAge");
+    this.setState({ age: age, pageIndex: 3 }, () => {
+      this.postUserObjectToServer();
+      this.pageHandler();
+    });
   };
   setStateValue = (key, value) => {
     console.log("in setState value");
