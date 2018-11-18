@@ -3,8 +3,8 @@
 }
 
 .intake-root-div {
-  
- 
+
+
 }
 
 .intake-title {
@@ -52,4 +52,24 @@
   font-size: 16px;
   height:120px;
   margin: 4px 2px;
+}
+.counter {
+  position: fixed;
+  top: .3em;
+  right: .3em;
+  font-size: 1.5em;
+  color: white;
+  border-radius: .5em;
+  padding: .3em 1em .5em 1em;
+  background-color: grey;
+}
+.counter:hover {
+  font-size: 2em;
+}
+.counter:hover > span{
+  display: inline;
+  font-size: .5em;
+}
+.counter > span {
+  display: none;
 }
