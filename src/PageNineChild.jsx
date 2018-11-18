@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import QueueCounter from "./QueueCounter";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 class PageNineChild extends Component {
@@ -11,12 +12,12 @@ class PageNineChild extends Component {
   makeButton = color => {
       console.log('page nine', this.props)
     return (
-      <div style={{ flex: 1, height:'140px ' }}>
+      <div style={{ flex: 1, height:'200px', width:'200px' }}>
         <button
         onClick={()=>{this.props.setStateValue('favoriteColor', color)}}
           type="primary"
           className="round-button"
-          style={{ backgroundColor: color }}
+          style={{ backgroundColor: color, width:'180px', height:'180px' }}
         >
           {/* {`${color}`} */}
         </button>
@@ -26,23 +27,25 @@ class PageNineChild extends Component {
   render() {
     const { name } = this.props;
     return (
-      <div className="page-five-child">
-        <div style={{ textAlign: "center", marginTop:'50px' }}>
+      <div className="page-nine-child">
+        <div style={{ textAlign: "center", marginTop:'50px', width:'100vw' }}>
           <div style={{ display: "inline-block" }}>
             <div style={{ fontSize: "50px" }}>What's your favorite color?</div>
             <div
               style={{
                 display: "flex",
                 flexDirection: "column",
-                height: "80vh",
-                marginTop:'50px'
+                height: "90vh",
+                marginTop:'50px',
+                width:'100vw'
               }}
             >
               <div style={{ flex: 1 }}>
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: "row"
+                    flexDirection: "row",
+                    width:'100%'
                   }}
                 >
                   <div className="flex-1" />
@@ -90,6 +93,7 @@ class PageNineChild extends Component {
             </div>
           </div>
         </div>
+        <QueueCounter count={this.props.queueSize} />
       </div>
     );
   }

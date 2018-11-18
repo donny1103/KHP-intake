@@ -14,7 +14,7 @@ class PageTenChild extends Component {
         { value: "sister", label: "My sister" },
         { value: "friend", label: "My friends" },
         { value: "teacher", label: "My teacher" },
-        { value: "coach", label: "My coach" },
+        { value: "pet", label: "My pet" },
         { value: "other", label: "Someone else" }
       ],
       arrayToReturn: []
@@ -39,11 +39,11 @@ class PageTenChild extends Component {
 
   render() {
     return (
-      <div>
+      <div className='page-ten-child'> 
         <div style={{ fontSize: "50px" }}>
-          <div style={{ textAlign: "center" }}>
+          <div style={{ textAlign: "center", marginTop:'-25px'}}>
             <div className="intake-title">Who do you care about?</div>
-            <div style={{ display: "inline-block", marginTop:'35px' }}>
+            <div style={{ display: "inline-block", marginTop:'25px' }}>
               <div style={{ display: "flex", flexDirection: "column" }}>
                 <form>
                   {this.state.checkboxArray.map(item => {
@@ -70,7 +70,7 @@ class PageTenChild extends Component {
           </div>
           <div style={{ textAlign: "center", marginTop:'50px' }}>
             <div style={{ display: "inline-block" }}>
-              <AwesomeButton action={()=>{this.handleClick()}} style={{height:'120px', width:'175px', fontSize:'30px'}} type="primary"> Next</AwesomeButton>
+              <AwesomeButton action={()=>{this.handleClick()}} style={{height:'200px', width:'200px', fontSize:'30px'}} type="primary"> Next</AwesomeButton>
             </div>
           </div>
         </div>

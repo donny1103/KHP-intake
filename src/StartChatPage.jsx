@@ -1,8 +1,9 @@
+
 import React, { Component } from "react";
 import "./App.css";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
-class PageFiveChild extends Component {
+class StartChatPage extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -15,11 +16,11 @@ class PageFiveChild extends Component {
   render() {
     
     return (
-      <div className="page-five-child">
-      <div style={{textAlign:'center', fontSize:'160px', marginTop:'-200px'}}>Great!</div>
+      <div className="start-chat-page">
+      <div style={{textAlign:'center'}}><div style={{display:'inline-block', fontSize:'60px', marginTop:'200px'}}>You are about to be connected to a counsellor...</div></div>
       </div>
     );
   }
 }
 
-export default PageFiveChild;
+export default StartChatPage;

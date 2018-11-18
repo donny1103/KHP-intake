@@ -30,12 +30,12 @@ class PageTwo extends Component {
       <div style={{ flex: 1 }}>
         <AwesomeButton
           action={() => {
-            this.props.setAge(parseInt(age));
+            this.props.setStateValue('age', parseInt(age));
           }}
           type="primary"
           style={{
             height: "200px",
-            width: "150px",
+            width: "200px",
             marginTop: "50px"
           }}
         >

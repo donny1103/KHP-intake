@@ -13,9 +13,9 @@ class PageOne extends Component {
     return (
       <div style={{ flex: 1 }}>
         <AwesomeButton
-        action={()=>{console.log('button clicked'); this.props.setAgeRange(ageRange)}}
+        action={()=>{console.log('button clicked'); this.props.setStateValue('ageRange', ageRange)}}
           type="primary"
-          style={{height:'200px', width: "200px", marginTop: "50px" }}
+          style={{height:'200px', width: "200px", marginTop: "50px", fontSize:'20px' }}
         >
           {text}
         </AwesomeButton>

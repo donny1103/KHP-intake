@@ -1,11 +1,6 @@
-.root-div {
+.root-div {}
 
-}
-
-.intake-root-div {
-
-
-}
+.intake-root-div {}
 
 .intake-title {
   margin: 0;
@@ -17,7 +12,8 @@
   text-align: center;
   font-size: 50px;
 }
-.intake-question-title{
+
+.intake-question-title {
   margin: 0;
   padding: 0;
   margin-top: 50px;
@@ -28,10 +24,11 @@
   font-size: 35px;
 }
 
-.flex-1{
-  flex:1;
+.flex-1 {
+  flex: 1;
 }
-.child-page-two-button-text{
+
+.child-page-two-button-text {
   margin: 0;
   padding: 0;
   font-family: aktiv-grotesk, sans-serif;
@@ -40,19 +37,128 @@
   text-align: center;
   font-size: 65px;
 }
-.round-button{
-  width:120px;
-  cursor:pointer;
-  border: solid  border 2px;
+
+.round-button {
+  width: 120px;
+  cursor: pointer;
+  border: solid border 2px;
   color: black;
   padding: 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  height:120px;
+  height: 120px;
   margin: 4px 2px;
+  border-radius: 25px;
 }
+
+.page-three-child {
+  /* The image used */
+  background-image: url("/images/gradient-yellow.jpg");
+
+  /* Full height */
+  height: 100vh;
+  color: 'white';
+  /* Center and scale the image nicely */
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: fill;
+  margin-bottom: 50vh
+}
+
+.page-four-child {
+  /* The image used */
+  background-image: url("/images/i-am-background.jpg");
+
+  /* Full height */
+  height: 100vh;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.page-five-child {
+  /* The image used */
+  background-image: url("/images/kids.svg");
+
+  /* Full height */
+  height: 100vh;
+  margin-top: 300px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.page-six-child {
+  /* The image used */
+  background-image: url("/images/yellow-flower-background.jpg");
+
+  /* Full height */
+  height: 100vh;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.page-seven-child {
+  /* The image used */
+  background-image: url("/images/running-kids.jpg");
+
+  /* Full height */
+  height: 100vh;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.page-seven-child {
+  /* The image used */
+  /* background-image: url("/images/feelings.jpg"); */
+
+  /* Full height */
+  height: 100vh;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.page-seven-title {
+  margin-top: 100px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 70px;
+
+  color: white;
+}
+
+.page-ten-child {
+  /* The image used */
+  background-image: url("/images/people.jpg");
+
+  /* Full height */
+  height: 100vh;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .counter {
   position: fixed;
   top: .3em;
@@ -61,15 +167,18 @@
   color: white;
   border-radius: .5em;
   padding: .3em 1em .5em 1em;
-  background-color: grey;
+  background-color: lightgreen;
 }
+
 .counter:hover {
   font-size: 2em;
 }
-.counter:hover > span{
+
+.counter:hover>span {
   display: inline;
   font-size: .5em;
 }
-.counter > span {
+
+.counter>span {
   display: none;
 }

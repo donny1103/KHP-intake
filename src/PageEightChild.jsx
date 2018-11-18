@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
-
+import QueueCounter from "./QueueCounter";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Slider from "@material-ui/lab/Slider";
@@ -39,7 +39,7 @@ class PageEightChild extends Component {
     const { sadValue } = this.state;
     const { name } = this.props;
     return (
-      <div className="page-five-child">
+      <div className="page-eight-child">
         <div style={{ textAlign: "center" }}>
           <div
             style={{
@@ -49,12 +49,11 @@ class PageEightChild extends Component {
               width: "70vw",
               display: "inline-block"
             }}
-          >
-            I'm talking to someone else right now {name}, but we will chat so
-            soon. Can you answer a few more questions for me?
-          </div>
+         / >
+         
+       
           <div
-            style={{ fontSize: "30px", marginTop: "80px", marginLeft: "50px" }}
+            style={{ fontSize: "60px", marginLeft: "50px" }}
           >
             How are you feeling right now?
           </div>
@@ -65,8 +64,8 @@ class PageEightChild extends Component {
           style={{ textAlign: "center", position: "relative", height: "100px" }}
         >
           <div style={{ display: "inline-block" }}>
-            <div style={{ width: "800px", marginTop: "50px" }}>
-              <div style={{ marginTop: "10px" }}>Happy/Sad</div>
+            <div style={{ width: "800px", marginTop: "80px" }}>
+              <div style={{ marginTop: "10px", fontSize:'40px' }}>Happy......Sad</div>
               <div
                 style={{
                   display: "flex",
@@ -77,7 +76,7 @@ class PageEightChild extends Component {
                 <div style={{ flex: 1 }}>
                   <img
                     src="./images/happy.png"
-                    style={{ width: 7 * 15 - this.state.sadValue * 15 }}
+                    style={{ width: 7 * 30 - this.state.sadValue * 30 }}
                   />
                 </div>
                 <div style={{ flex: 1 }}>
@@ -93,7 +92,7 @@ class PageEightChild extends Component {
                 <div style={{ flex: 1 }}>
                   <img
                     src="./images/sad.png"
-                    style={{ width: this.state.sadValue * 15 }}
+                    style={{ width: this.state.sadValue * 30 }}
                   />
                 </div>
               </div>
@@ -107,8 +106,8 @@ class PageEightChild extends Component {
           style={{ textAlign: "center", position: "relative", height: "100px" }}
         >
           <div style={{ display: "inline-block" }}>
-            <div style={{ width: "800px", marginTop: "120px" }}>
-              <div style={{ marginTop: "10px" }}>Safe/Scared</div>
+            <div style={{ width: "800px", marginTop: "240px" }}>
+              <div style={{ marginTop: "10px", fontSize:'40px' }}>Safe......Scared</div>
               <div
                 style={{
                   display: "flex",
@@ -119,7 +118,7 @@ class PageEightChild extends Component {
                 <div style={{ flex: 1 }}>
                   <img
                     src="./images/calm.png"
-                    style={{ width: 7 * 15 - this.state.scaredValue * 15 }}
+                    style={{ width: 7 * 30 - this.state.scaredValue * 30 }}
                   />
                 </div>
                 <div style={{ flex: 1 }}>
@@ -135,16 +134,17 @@ class PageEightChild extends Component {
                 <div style={{ flex: 1 }}>
                   <img
                     src="./images/scared.png"
-                    style={{ width: this.state.scaredValue * 15 }}
+                    style={{ width: this.state.scaredValue * 30 }}
                   />
                 </div>
               </div>
             </div>
           </div>
         </div> 
-        <div style={{ textAlign:'center', marginTop:'200px' }}>
-          <AwesomeButton action={()=>{this.props.setTwoStateValues('sadValue', this.state.sadValue, 'scaredValue', this.state.scaredValue)}} type="primary">This is how I Feel</AwesomeButton>
+        <div style={{ textAlign:'center', marginTop:'360px' }}>
+          <AwesomeButton style={{width:'200px', height:'200px', fontSize:'20px'}} action={()=>{this.props.setTwoStateValues('sadValue', this.state.sadValue, 'scaredValue', this.state.scaredValue)}} type="primary">This is how I feel</AwesomeButton>
         </div>
+        <QueueCounter count={this.props.queueSize} />
       </div>
     );
   }

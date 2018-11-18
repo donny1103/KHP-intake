@@ -23,14 +23,17 @@ class PageSixChild extends Component {
     return (
       <div className="page-six-child">
         <div style={{ textAlign: "center" }}>
-          <div style={{ display: "flex", flexDirection: "column", height:'100%' }}>
+          <div
+            style={{ display: "flex", flexDirection: "column", height: "100%" }}
+          >
             <div style={{ display: "inline-display" }}>
               <div className="flex-1 intake-title">
-                <div style={{ fontSize: "50px" }}>What is your name?</div>
+                <div style={{ fontSize: "100px", marginTop:'200px'}}>What is your name?</div>
               </div>
 
               <div className="flex-1">
                 <input
+                style={{height:'200px', fontSize:'100px', textAlign:'center', marginTop:'50px'}}
                   type="text"
                   name="name"
                   onChange={event => {
@@ -39,7 +42,15 @@ class PageSixChild extends Component {
                 />
               </div>
               <div className="flex-1">
-                <AwesomeButton action={()=>{this.props.setStateValue('name', this.state.name)}}type="primary">Let me know!</AwesomeButton>
+                <AwesomeButton
+                  action={() => {
+                    this.props.setStateValue("name", this.state.name);
+                  }}
+                  style={{height:'200px', width:'200px', marginTop:"50px", fontSize:'35px', lineHeight:'40px'}}
+                  type="primary"
+                >
+                  Let me know!
+                </AwesomeButton>
               </div>
             </div>
           </div>
