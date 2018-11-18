@@ -14,7 +14,14 @@ import "./App.css";
 class Intake extends Component {
   constructor(props) {
     super(props);
-    this.state = { pageIndex: 1, age: 0, ageRange: 0, type: 'user', time: new Date()};
+    this.state = {
+      pageIndex: 1,
+      age: 0,
+      ageRange: 0,
+      type: 'user',
+      time: new Date(),
+      queueSize: 100,
+    };
   }
 
   componentDidMount() {
@@ -31,31 +38,20 @@ class Intake extends Component {
           this.setState({userId: incoming.id});
           break;
         case 'updateCount':
-          this.setState({queueSize: incoming.count});
+          if (incoming.count < this.state.queueSize) {
+            this.setState({queueSize: incoming.count});
+          }
           break;
         default:
           console.log('INCOMING DATA NOT RECOGNIZED')
       }
     }
-
-    // fetch("http://localhost:9000/userid")
-    //   .then(response => response.json())
-    //   .then(response =>
-    //     this.setState({ userId: response.userId }, () => {
-    //       console.log(this.state);
-    //     })
-    //   );
   }
 
   postUserObjectToServer = () => {
     console.log('Sending stuff');
     console.log(this.state);
-
     this.socket.send(JSON.stringify(this.state))
-    // axios
-    //   .post("http://localhost:9000/user", this.state)
-    //   .then(console.log)
-    //   .catch(console.error("Error"));
   };
   setAgeRange = ageRange => {
     console.log("in setAgeRange");
