@@ -16,7 +16,7 @@ class PageFiveChild extends Component {
     
     return (
       <div className="page-five-child">
-        <div style={{ fontSize: "50px" }}>Awesome! Interstitial here</div>
+      <div style={{textAlign:'center', fontSize:'160px', marginTop:'-200px'}}>Great!</div>
       </div>
     );
   }

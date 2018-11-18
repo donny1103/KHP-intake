@@ -26,7 +26,7 @@ class PageNineChild extends Component {
   render() {
     const { name } = this.props;
     return (
-      <div className="page-five-child">
+      <div className="page-nine-child">
         <div style={{ textAlign: "center", marginTop:'50px' }}>
           <div style={{ display: "inline-block" }}>
             <div style={{ fontSize: "50px" }}>What's your favorite color?</div>

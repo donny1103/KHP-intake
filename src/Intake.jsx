@@ -10,6 +10,7 @@ import PageEightChild from "./PageEightChild.jsx";
 import QueueCounter from "./QueueCounter"
 import PageNineChild from "./PageNineChild.jsx"
 import PageTenChild from "./PageTenChild.jsx"
+import PageElevenChild from "./PageElevenChild.jsx"
 import "./App.css";
 
 class Intake extends Component {
@@ -47,11 +48,9 @@ class Intake extends Component {
   }
 
   postUserObjectToServer = () => {
-    this.socket.send(JSON.stringify(this.state))
-    // axios
-    //   .post("http://localhost:9000/user", this.state)
-    //   .then(console.log)
-    //   .catch(console.error("Error"));
+    // this.socket.send(JSON.stringify(this.state))
+
+    
   };
   setAgeRange = ageRange => {
     console.log("in setAgeRange");
@@ -171,6 +170,15 @@ class Intake extends Component {
         console.log("in case 10");
         return (
           <PageTenChild
+            setPageIndex={this.setPageIndex}
+            setStateValue={this.setStateValue}
+            name={this.state.name}
+          />
+        );
+        case 11:
+        console.log("in case 11");
+        return (
+          <PageElevenChild
             setPageIndex={this.setPageIndex}
             setStateValue={this.setStateValue}
             name={this.state.name}

@@ -39,7 +39,7 @@ class PageEightChild extends Component {
     const { sadValue } = this.state;
     const { name } = this.props;
     return (
-      <div className="page-five-child">
+      <div className="page-eight-child">
         <div style={{ textAlign: "center" }}>
           <div
             style={{
