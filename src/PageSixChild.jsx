@@ -46,7 +46,7 @@ class PageSixChild extends Component {
                   action={() => {
                     this.props.setStateValue("name", this.state.name);
                   }}
-                  style={{height:'150px', width:'250px', marginTop:"50px", fontSize:'40px', lineHeight:'40px'}}
+                  style={{height:'200px', width:'200px', marginTop:"50px", fontSize:'35px', lineHeight:'40px'}}
                   type="primary"
                 >
                   Let me know!

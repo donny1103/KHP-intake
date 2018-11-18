@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom'
 import sizeMe from 'react-sizeme'
 import Confetti from 'react-confetti'
-
+import Typing from 'react-typing-animation';
 const DimensionedExample = sizeMe({
   monitorHeight: true,
   monitorWidth: true,
@@ -15,7 +15,7 @@ const DimensionedExample = sizeMe({
 class PageThreeChild extends Component {
   constructor(props) {
     super(props);
-    this.state = {text:''};
+    this.state = {text:`${this.props.age} years old !`, canChangeText:true};
   }
   static propTypes = {
     size: PropTypes.shape({
@@ -24,17 +24,8 @@ class PageThreeChild extends Component {
     }),
   }
   componentDidMount() {
-    console.log('page 3 component did mount')
-    setTimeout(()=>{this.setState({text:this.props.age})}, 200);
-    setTimeout(()=>{this.setState({text:`${this.props.age} years`})}, 400);
-    setTimeout(()=>{this.setState({text:`${this.props.age} years old`})}, 600);
-    setTimeout(()=>{this.setState({text:`${this.props.age} years old !`})}, 800);
-    setTimeout(()=>{this.setState({text:`${this.props.age} years old !!`})}, 850);
-    setTimeout(()=>{this.setState({text:`${this.props.age} years old !!!!`})}, 900);
-    setTimeout(()=>{this.setState({text:`${this.props.age} years old !!!!!`})}, 950);
-    setTimeout(()=>{this.setState({text:`${this.props.age} years old !!!!!`})}, 1000);
-    setTimeout(()=>{this.setState({text:"Got it!"})}, 1400);
-    setTimeout(()=>{this.props.setPageIndex(4)}, 2100);
+
+    setTimeout(()=>{this.props.setPageIndex(4)}, 4600);
   
   }
   render() {
@@ -42,7 +33,7 @@ class PageThreeChild extends Component {
     console.log("in page 3", this.props);
     return (
       <div className="page-three-child">
-        <div style={{ fontSize: "150px", fontColor:'white', textAlign:'center', fontWeight:'800px' }}><div style={{paddingTop:'250px'}}>{this.state.text}</div></div>
+        <div style={{ fontSize: "150px", fontColor:'white', textAlign:'center', fontWeight:'800px' }}><div style={{paddingTop:'250px'}}><Typing startDelay={this.state.canChangeText ? 100 : 1000} onFinishedTyping={()=>{this.state.canChangeText ? this.setState({text:'AWESOME!', canChangeText:false}) : console.log('cant change')}} hideCursor={true} speed={150}><span>{this.state.text}</span></Typing></div></div>
       </div>
     );
   }

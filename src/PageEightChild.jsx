@@ -53,7 +53,7 @@ class PageEightChild extends Component {
          
        
           <div
-            style={{ fontSize: "60px", marginTop: "80px", marginLeft: "50px" }}
+            style={{ fontSize: "60px", marginLeft: "50px" }}
           >
             How are you feeling right now?
           </div>
@@ -64,8 +64,8 @@ class PageEightChild extends Component {
           style={{ textAlign: "center", position: "relative", height: "100px" }}
         >
           <div style={{ display: "inline-block" }}>
-            <div style={{ width: "800px", marginTop: "50px" }}>
-              <div style={{ marginTop: "10px", fontSize:'40px' }}>Happy/Sad</div>
+            <div style={{ width: "800px", marginTop: "80px" }}>
+              <div style={{ marginTop: "10px", fontSize:'40px' }}>Happy......Sad</div>
               <div
                 style={{
                   display: "flex",
@@ -76,7 +76,7 @@ class PageEightChild extends Component {
                 <div style={{ flex: 1 }}>
                   <img
                     src="./images/happy.png"
-                    style={{ width: 7 * 15 - this.state.sadValue * 15 }}
+                    style={{ width: 7 * 30 - this.state.sadValue * 30 }}
                   />
                 </div>
                 <div style={{ flex: 1 }}>
@@ -92,7 +92,7 @@ class PageEightChild extends Component {
                 <div style={{ flex: 1 }}>
                   <img
                     src="./images/sad.png"
-                    style={{ width: this.state.sadValue * 15 }}
+                    style={{ width: this.state.sadValue * 30 }}
                   />
                 </div>
               </div>
@@ -106,8 +106,8 @@ class PageEightChild extends Component {
           style={{ textAlign: "center", position: "relative", height: "100px" }}
         >
           <div style={{ display: "inline-block" }}>
-            <div style={{ width: "800px", marginTop: "120px" }}>
-              <div style={{ marginTop: "10px", fontSize:'40px' }}>Safe/Scared</div>
+            <div style={{ width: "800px", marginTop: "240px" }}>
+              <div style={{ marginTop: "10px", fontSize:'40px' }}>Safe......Scared</div>
               <div
                 style={{
                   display: "flex",
@@ -118,7 +118,7 @@ class PageEightChild extends Component {
                 <div style={{ flex: 1 }}>
                   <img
                     src="./images/calm.png"
-                    style={{ width: 7 * 15 - this.state.scaredValue * 15 }}
+                    style={{ width: 7 * 30 - this.state.scaredValue * 30 }}
                   />
                 </div>
                 <div style={{ flex: 1 }}>
@@ -134,15 +134,15 @@ class PageEightChild extends Component {
                 <div style={{ flex: 1 }}>
                   <img
                     src="./images/scared.png"
-                    style={{ width: this.state.scaredValue * 15 }}
+                    style={{ width: this.state.scaredValue * 30 }}
                   />
                 </div>
               </div>
             </div>
           </div>
         </div> 
-        <div style={{ textAlign:'center', marginTop:'200px' }}>
-          <AwesomeButton style={{width:'200px', height:'150px', fontSize:'20px'}} action={()=>{this.props.setTwoStateValues('sadValue', this.state.sadValue, 'scaredValue', this.state.scaredValue)}} type="primary">This is how I feel</AwesomeButton>
+        <div style={{ textAlign:'center', marginTop:'360px' }}>
+          <AwesomeButton style={{width:'200px', height:'200px', fontSize:'20px'}} action={()=>{this.props.setTwoStateValues('sadValue', this.state.sadValue, 'scaredValue', this.state.scaredValue)}} type="primary">This is how I feel</AwesomeButton>
         </div>
       </div>
     );

@@ -35,7 +35,7 @@ class PageTwo extends Component {
           type="primary"
           style={{
             height: "200px",
-            width: "150px",
+            width: "200px",
             marginTop: "50px"
           }}
         >

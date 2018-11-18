@@ -67,7 +67,7 @@ class Intake extends Component {
   pageHandler = () => {
     const { age, ageRange } = this.state;
     if (age === 0 && ageRange === 0) {
-      return <PageOne setStateValue={this.setStateValue} />;
+      return <PageEightChild setStateValue={this.setStateValue} />;
     } else if (age === 0 && ageRange === "child") {
       return <PageTwoChild setStateValue={this.setStateValue} />;
     } else if (age === 0 && ageRange === "adolescent") {
