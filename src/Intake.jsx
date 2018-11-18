@@ -7,6 +7,7 @@ import PageFiveChild from "./PageFiveChild.jsx";
 import PageSixChild from "./PageSixChild.jsx";
 import PageSevenChild from "./PageSevenChild.jsx";
 import PageEightChild from "./PageEightChild.jsx";
+import PageNineChild from "./PageNineChild.jsx"
 import "./App.css";
 import axios from "axios";
 
@@ -70,7 +71,7 @@ class Intake extends Component {
     console.log("in page handler");
     const { age, ageRange } = this.state;
     if (age === 0 && ageRange === 0) {
-      return <PageOne setAgeRange={this.setAgeRange} />;
+      return <PageNineChild setAgeRange={this.setAgeRange} />;
     } else if (age === 0 && ageRange === "child") {
       return <PageTwoChild setAge={this.setAge} />;
     } else if (age === 0 && ageRange === "adolescent") {
@@ -134,6 +135,15 @@ class Intake extends Component {
           <PageEightChild
             setPageIndex={this.setPageIndex}
             setTwoStateValues={this.setTwoStateValues}
+            name={this.state.name}
+          />
+        );
+        case 9:
+        console.log("in case 9");
+        return (
+          <PageNineChild
+            setPageIndex={this.setPageIndex}
+            setStateValue={this.setStateValue}
             name={this.state.name}
           />
         );
