@@ -7,8 +7,8 @@ import PageFiveChild from "./PageFiveChild.jsx";
 import PageSixChild from "./PageSixChild.jsx";
 import PageSevenChild from "./PageSevenChild.jsx";
 import PageEightChild from "./PageEightChild.jsx";
+import QueueCounter from "./QueueCounter"
 import "./App.css";
-import axios from "axios";
 
 class Intake extends Component {
   constructor(props) {
@@ -17,20 +17,39 @@ class Intake extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:9000/userid")
-      .then(response => response.json())
-      .then(response =>
-        this.setState({ userId: response.userId }, () => {
-          console.log(this.state);
-        })
-      );
+    this.socket = new WebSocket('ws://localhost:3001')
+    this.socket.onopen = event => {
+      console.log('WS CONNECTED');
+    }
+    this.socket.onmessage = e => {
+      const incoming = JSON.parse(e.data);
+      switch (incoming.type) {
+        case 'id':
+          this.setState({userId: incoming.id});
+          break;
+        case 'updateCount':
+          this.setState({queueSize: incoming.count});
+          break;
+        default:
+          console.log('INCOMING DATA NOT RECOGNIZED')
+      }
+    }
+
+    // fetch("http://localhost:9000/userid")
+    //   .then(response => response.json())
+    //   .then(response =>
+    //     this.setState({ userId: response.userId }, () => {
+    //       console.log(this.state);
+    //     })
+    //   );
   }
 
   postUserObjectToServer = () => {
-    axios
-      .post("http://localhost:9000/user", this.state)
-      .then(console.log)
-      .catch(console.error("Error"));
+    this.socket.send(JSON.stringify(this.state))
+    // axios
+    //   .post("http://localhost:9000/user", this.state)
+    //   .then(console.log)
+    //   .catch(console.error("Error"));
   };
   setAgeRange = ageRange => {
     console.log("in setAgeRange");
@@ -149,7 +168,12 @@ class Intake extends Component {
 
   clickHandler = () => {};
   render() {
-    return <div className="intake-root-div">{this.pageHandler()}</div>;
+    return (
+    <div className="intake-root-div">
+      {this.pageHandler()}
+      <QueueCounter count={this.state.queueSize} />
+    </div>)
+    ;
   }
 }
 
