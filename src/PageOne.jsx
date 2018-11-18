@@ -27,7 +27,7 @@ class PageOne extends Component {
   render() {
     return (
       <div className="intake-root-div">
-        <div className="intake-title">Welcome to the KidsHelp Phone</div>
+        <div className="intake-title">Welcome to the Kids Help Phone</div>
         <div className="intake-question-title helv-body">How old are you?</div>
         <div style={{ textAlign: "center" }}>
           <div

@@ -68,9 +68,9 @@ class PageTenChild extends Component {
               </div>
             </div>
           </div>
-          <div style={{ textAlign: "center", marginTop:'50px' }}>
+          <div style={{ textAlign: "center"}}>
             <div style={{ display: "inline-block" }}>
-              <AwesomeButton action={()=>{this.handleClick()}} style={{height:'200px', width:'200px', fontSize:'30px'}} type="primary"> Next</AwesomeButton>
+              <AwesomeButton action={()=>{this.handleClick()}} style={{height:'150px', width:'200px', fontSize:'30px', marginTop:'25px'}} type="primary"> Next</AwesomeButton>
             </div>
           </div>
         </div>

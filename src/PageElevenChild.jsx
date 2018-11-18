@@ -13,7 +13,7 @@ class PageFiveChild extends Component {
 
   }
   makeButtons = (path, label) =>{
-    return (<div><div className='flex-1'><AwesomeButton style={{width:'300px', height:'300px'}}type='primary'><img src={path} style={{height:'200px', width:'200px'}}/></AwesomeButton></div><div style={{ marginTop:'25px', fontSize:'35px'}}>{label}</div></div>)
+    return (<div><div className='flex-1'><AwesomeButton style={{width:'300px', height:'300px'}}type='primary'><img src={path} style={{height:'200px', width:'200px'}}/></AwesomeButton></div><div className='helv-body' style={{ marginTop:'25px', fontSize:'35px'}}>{label}</div></div>)
   }
   render() {
     return (

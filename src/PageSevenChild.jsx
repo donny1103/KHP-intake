@@ -19,7 +19,7 @@ class PageSevenChild extends Component {
       <div className="page-seven-child">
         <div style={{ textAlign: "center" }}>
           <div  className='helv-rounded' style={{ display: "inline-block" }}>
-            <div className="page-seven-title">Nice to meet you {name} :)</div>
+            <div className="page-seven-title">Nice to meet you {name}!</div>
             <div
               style={{
                 fontSize: "35px",
@@ -29,11 +29,11 @@ class PageSevenChild extends Component {
               }}
               className='helv-body'
             >
-              I'm talking to another child right now {name}, but we will talk
+              I'm helping another child right now {name}, but we will talk
               soon.
               <br />
               <br />
-              The green box in the top left corner shows you your place in line.
+              The green box in the top right corner shows you your place in line.
             </div>
             <div
               style={{

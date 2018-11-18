@@ -95,7 +95,7 @@
 
 .page-four-child {
   /* The image used */
-  background-image: url("/images/i-am-background.jpg");
+  background-image: url("/images/i-am-background2.jpg");
 
   /* Full height */
   height: 100vh;
@@ -193,7 +193,7 @@
   color: white;
   border-radius: .5em;
   padding: .3em 1em .5em 1em;
-  background-color: lightskyblue;
+  background-color: #00bf6f;
 }
 
 .counter:hover {

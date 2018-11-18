@@ -47,7 +47,7 @@ class PageTwo extends Component {
   render() {
     return (
       <div className="page-two-child">
-        <div className="intake-title">Great! So just how old are you...</div>
+        <div className="intake-title">Great! What's your exact age?</div>
         <div style={{ textAlign: "center" }}>
           <div
             style={{
