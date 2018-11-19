@@ -29,15 +29,13 @@ class Intake extends Component {
   }
 
   componentDidMount() {
-    // this.socket = new WebSocket("ws://10.0.78.176:3001");
-    this.socket = new WebSocket('ws://localhost:3001')
+    this.socket = new WebSocket('ws://localhost:9000')
     this.socket.onopen = event => {
       console.log("WS CONNECTED");
     };
+
     this.socket.onmessage = e => {
       const incoming = JSON.parse(e.data);
-      console.log(incoming);
-
       switch (incoming.type) {
         case "id":
           this.setState({ userId: incoming.id });
@@ -59,30 +57,32 @@ class Intake extends Component {
   }
 
   postUserObjectToServer = () => {
-    console.log('Sending stuff');
-    console.log(this.state);
     this.socket.send(JSON.stringify(this.state))
   };
-  setAgeRange = ageRange => {
-    console.log("in setAgeRange");
-    this.setState({ ageRange: ageRange, pageIndex: 2 }, () => {
-      this.postUserObjectToServer();
-      this.pageHandler();
-    });
-  };
-  setAge = age => {
-    console.log("in setAge");
-    this.setState({ age: age, pageIndex: 3 }, () => {
-      this.postUserObjectToServer();
-      this.pageHandler();
-    });
-  };
+
+//Is the commented code below safe to delete?
+
+  // setAgeRange = ageRange => {
+  //   console.log("in setAgeRange");
+  //   this.setState({ ageRange: ageRange, pageIndex: 2 }, () => {
+  //     this.postUserObjectToServer();
+  //     this.pageHandler();
+  //   });
+  // };
+  // setAge = age => {
+  //   console.log("in setAge");
+  //   this.setState({ age: age, pageIndex: 3 }, () => {
+  //     this.postUserObjectToServer();
+  //     this.pageHandler();
+  //   });
+  // };
+
+
+//  Should these two functions become one?
   setStateValue = (key, value) => {
-    console.log("in setState value");
     this.setState({ [key]: value, pageIndex: this.state.pageIndex + 1 }, () => {
       this.postUserObjectToServer();
       this.pageHandler();
-      console.log(this.state);
     });
   };
 
@@ -92,10 +92,11 @@ class Intake extends Component {
       () => {
         this.postUserObjectToServer();
         this.pageHandler();
-        console.log(this.state);
       }
     );
   };
+
+
   setPageIndex = index => {
     this.setState({ pageIndex: index });
   };
@@ -115,6 +116,8 @@ class Intake extends Component {
       this.pageHandlerAdolescent();
     }
   };
+
+  // Each page handler needs to be its own component
   pageHandlerChild = () => {
     switch (this.state.pageIndex) {
       case 3:
@@ -193,7 +196,7 @@ class Intake extends Component {
           />
         );
       default:
-        console.log("page handler in impossible index");
+        console.log("pageHandlerChild in an impossible index:", this.state.pageIndex);
     }
   };
   pageHandlerAdolescent = () => {
@@ -208,13 +211,10 @@ class Intake extends Component {
     //     return <PageTwo />;
     // }
   };
-
-  clickHandler = () => {};
   render() {
     return (
       <div className="intake-root-div">
-        {this.state.chat ? <StartChatPage/> : this.pageHandler()}
-       
+        {this.state.chat ? <StartChatPage/> : this.pageHandler()}      
       </div>
     );
   }
