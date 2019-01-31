@@ -44,6 +44,7 @@ class PageSixChild extends Component {
                   type="text"
                   name="name"
                   className="helv-body"
+                  autoComplete="off"
                   onChange={event => {
                     this.onChange(event);
                   }}
