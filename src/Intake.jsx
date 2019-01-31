@@ -41,7 +41,7 @@ class Intake extends Component {
   }
 
   componentDidMount() {
-    this.socket = new WebSocket('ws://localhost:3001');
+    this.socket = new WebSocket('wss://khp-server.herokuapp.com/');
     this.setState({socket:this.socket});
     this.socket.onopen = () => {
       console.log("WS CONNECTED");
