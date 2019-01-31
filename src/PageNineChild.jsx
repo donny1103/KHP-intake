@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import QueueCounter from "./QueueCounter";
-import { AwesomeButton } from "react-awesome-button";
+//import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 class PageNineChild extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class PageNineChild extends Component {
     );
   };
   render() {
-    const { name } = this.props;
+    //const { name } = this.props;
     return (
       <div className="page-nine-child">
         <div style={{ textAlign: "center", marginTop:'50px', width:'100vw' }}>

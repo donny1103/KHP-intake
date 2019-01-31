@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
-import Typing from "react-typing-animation";
+//import Typing from "react-typing-animation";
 import QueueCounter from "./QueueCounter";
 class PageSevenChild extends Component {
   constructor(props) {

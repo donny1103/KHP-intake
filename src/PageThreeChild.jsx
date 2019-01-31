@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import "./App.css";
-import { AwesomeButton } from "react-awesome-button";
+//import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 import PropTypes from 'prop-types'
-import ReactDOM from 'react-dom'
-import sizeMe from 'react-sizeme'
-import Confetti from 'react-confetti'
+//import ReactDOM from 'react-dom'
+//import sizeMe from 'react-sizeme'
+//import Confetti from 'react-confetti'
 import Typing from 'react-typing-animation';
-const DimensionedExample = sizeMe({
-  monitorHeight: true,
-  monitorWidth: true,
-})
+// const DimensionedExample = sizeMe({
+//   monitorHeight: true,
+//   monitorWidth: true,
+// })
 
 class PageThreeChild extends Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class PageThreeChild extends Component {
   
   }
   render() {
-    const { age } = this.props;
+    //const { age } = this.props;
     console.log("in page 3", this.props);
     return (
       <div className="page-three-child">

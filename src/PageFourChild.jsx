@@ -32,6 +32,7 @@ class PageFourChild extends Component {
               width: "480px"
             }}
             src={source}
+            alt='eleven'
           />
         </AwesomeButton>
       </div>

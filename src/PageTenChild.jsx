@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
-import { Checkbox, CheckboxGroup } from "react-checkbox-group";
+//import { Checkbox, CheckboxGroup } from "react-checkbox-group";
 class PageTenChild extends Component {
   constructor(props) {
     super(props);

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import Intake from "./Intake.jsx";
 import "./App.css";
 

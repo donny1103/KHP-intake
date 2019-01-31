@@ -3,17 +3,17 @@ import "./App.css";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 import QueueCounter from "./QueueCounter";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
+//import PropTypes from "prop-types";
+//import { withStyles } from "@material-ui/core/styles";
 import Slider from "@material-ui/lab/Slider";
-const styles = {
-  root: {
-    width: 300
-  },
-  slider: {
-    padding: "22px 0px"
-  }
-};
+// const styles = {
+//   root: {
+//     width: 300
+//   },
+//   slider: {
+//     padding: "22px 0px"
+//   }
+// };
 class PageEightChild extends Component {
   constructor(props) {
     super(props);
@@ -36,8 +36,8 @@ class PageEightChild extends Component {
     console.log("page 8 component did mount");
   }
   render() {
-    const { sadValue } = this.state;
-    const { name } = this.props;
+    // const { sadValue } = this.state;
+    // const { name } = this.props;
     return (
       <div className="page-eight-child">
         <div style={{ textAlign: "center" }}>
@@ -77,6 +77,7 @@ class PageEightChild extends Component {
                 <div style={{ flex: 1 }}>
                   <img
                     src="./images/happy.png"
+                    alt='happy'
                     style={{ width: 7 * 30 - this.state.sadValue * 30 }}
                   />
                 </div>
@@ -93,6 +94,7 @@ class PageEightChild extends Component {
                 <div style={{ flex: 1 }}>
                   <img
                     src="./images/sad.png"
+                    alt='sad'
                     style={{ width: this.state.sadValue * 30 }}
                   />
                 </div>
@@ -120,6 +122,7 @@ class PageEightChild extends Component {
                   <img
                     src="./images/calm.png"
                     style={{ width: 7 * 30 - this.state.scaredValue * 30 }}
+                    alt='calm'
                   />
                 </div>
                 <div style={{ flex: 1 }}>
@@ -136,6 +139,7 @@ class PageEightChild extends Component {
                   <img
                     src="./images/scared.png"
                     style={{ width: this.state.scaredValue * 30 }}
+                    alt='scared'
                   />
                 </div>
               </div>
@@ -153,8 +157,3 @@ class PageEightChild extends Component {
 
 export default PageEightChild;
 
-{
-  /* <div style={{ flex: 1, marginTop:'150px'}}>
-                  <AwesomeButton type="primary">This is how I Feel</AwesomeButton>
-                </div> */
-}

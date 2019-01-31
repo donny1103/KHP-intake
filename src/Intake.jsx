@@ -7,11 +7,11 @@ import PageFiveChild from "./PageFiveChild.jsx";
 import PageSixChild from "./PageSixChild.jsx";
 import PageSevenChild from "./PageSevenChild.jsx";
 import PageEightChild from "./PageEightChild.jsx";
-import QueueCounter from "./QueueCounter";
+//import QueueCounter from "./QueueCounter";
 import PageNineChild from "./PageNineChild.jsx";
 import PageTenChild from "./PageTenChild.jsx";
 import PageElevenChild from "./PageElevenChild.jsx";
-import StartChatPage from "./StartChatPage.jsx"
+import Chat from "./Chat.jsx"
 import "./App.css";
 
 class Intake extends Component {
@@ -19,18 +19,31 @@ class Intake extends Component {
     super(props);
     this.state = {
       pageIndex: 1,
-      age: 0,
-      ageRange: 0,
-      type: 'user',
       time: new Date(),
       queueSize: 100,
       chat: false,
-    };
+      counsellor:{},
+      socket:{},
+      user:{
+        type: 'user',
+        age: 0,
+        ageRange: 0,
+        userId: '',
+        gender: '',
+        name: '',
+        sadValue: '',
+        scaredValue: '',
+        favoriteColor: '',
+        careAbout: [],
+        severity: 1 
+      },
+    }
   }
 
   componentDidMount() {
-    this.socket = new WebSocket('ws://localhost:3001')
-    this.socket.onopen = event => {
+    this.socket = new WebSocket('ws://localhost:3001');
+    this.setState({socket:this.socket});
+    this.socket.onopen = () => {
       console.log("WS CONNECTED");
     };
 
@@ -38,7 +51,7 @@ class Intake extends Component {
       const incoming = JSON.parse(e.data);
       switch (incoming.type) {
         case "id":
-          this.setState({ userId: incoming.id });
+          this.setState({ user:{...this.state.user,userId: incoming.id }});
           break;
         case 'updateCount':
           if (incoming.count < this.state.queueSize) {
@@ -46,8 +59,8 @@ class Intake extends Component {
           }
           break;
         case 'startChat':
-          if (incoming.id === this.state.userId) {
-            this.setState({chat: true});
+          if (incoming.id === this.state.user.userId) {
+            this.setState({chat: true, counsellor: {...incoming.counsellor}});
           }
           break;
         default:
@@ -57,7 +70,7 @@ class Intake extends Component {
   }
 
   postUserObjectToServer = () => {
-    this.socket.send(JSON.stringify(this.state))
+    this.socket.send(JSON.stringify(this.state.user))
   };
 
 //Is the commented code below safe to delete?
@@ -80,15 +93,15 @@ class Intake extends Component {
 
 //  Should these two functions become one?
   setStateValue = (key, value) => {
-    this.setState({ [key]: value, pageIndex: this.state.pageIndex + 1 }, () => {
+    
+    this.setState({ user:{...this.state.user,[key]: value} , pageIndex: this.state.pageIndex + 1 }, () => {
       this.postUserObjectToServer();
       this.pageHandler();
     });
   };
 
   setTwoStateValues = (key, value, keyTwo, valueTwo) => {
-    this.setState(
-      { [key]: value, [keyTwo]: valueTwo, pageIndex: this.state.pageIndex + 1 },
+    this.setState({ user:{...this.state.user, [key]: value, [keyTwo]: valueTwo} , pageIndex: this.state.pageIndex + 1 },
       () => {
         this.postUserObjectToServer();
         this.pageHandler();
@@ -101,7 +114,7 @@ class Intake extends Component {
     this.setState({ pageIndex: index });
   };
   pageHandler = () => {
-    const { age, ageRange } = this.state;
+    const { age, ageRange } = this.state.user;
     if (age === 0 && ageRange === 0) {
       return <PageOne setStateValue={this.setStateValue} />;
     } else if (age === 0 && ageRange === "child") {
@@ -123,14 +136,14 @@ class Intake extends Component {
       case 3:
         return (
           <PageThreeChild
-            age={this.state.age}
+            age={this.state.user.age}
             setPageIndex={this.setPageIndex}
           />
         );
       case 4:
         return (
           <PageFourChild
-            age={this.state.age}
+            age={this.state.user.age}
             setPageIndex={this.setPageIndex}
             setStateValue={this.setStateValue}
           />
@@ -154,7 +167,7 @@ class Intake extends Component {
           <PageSevenChild
             setPageIndex={this.setPageIndex}
             setStateValue={this.setStateValue}
-            name={this.state.name}
+            name={this.state.user.name}
             currentIndex={this.state.pageIndex}
             count={this.state.queueSize}
           />
@@ -164,7 +177,7 @@ class Intake extends Component {
           <PageEightChild
             setPageIndex={this.setPageIndex}
             setTwoStateValues={this.setTwoStateValues}
-            name={this.state.name}
+            name={this.state.user.name}
             count={this.state.queueSize}
           />
         );
@@ -173,7 +186,7 @@ class Intake extends Component {
           <PageNineChild
             setPageIndex={this.setPageIndex}
             setStateValue={this.setStateValue}
-            name={this.state.name}
+            name={this.state.user.name}
             count={this.state.queueSize}
           />
         );
@@ -182,7 +195,7 @@ class Intake extends Component {
           <PageTenChild
             setPageIndex={this.setPageIndex}
             setStateValue={this.setStateValue}
-            name={this.state.name}
+            name={this.state.user.name}
             count={this.state.queueSize}
           />
         );
@@ -191,7 +204,7 @@ class Intake extends Component {
           <PageElevenChild
             setPageIndex={this.setPageIndex}
             setStateValue={this.setStateValue}
-            name={this.state.name}
+            name={this.state.user.name}
             count={this.state.queueSize}
           />
         );
@@ -214,7 +227,13 @@ class Intake extends Component {
   render() {
     return (
       <div className="intake-root-div">
-        {this.state.chat ? <StartChatPage/> : this.pageHandler()}      
+        {this.state.chat ? 
+        <Chat 
+          socket={this.state.socket} 
+          counsellor={this.state.counsellor} 
+          user={this.state.user}
+        /> : 
+        this.pageHandler()}      
       </div>
     );
   }
