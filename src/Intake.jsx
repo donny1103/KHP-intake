@@ -20,7 +20,7 @@ class Intake extends Component {
     this.state = {
       pageIndex: 1,
       time: new Date(),
-      queueSize: 100,
+      queueSize: 0,
       chat: false,
       counsellor:{},
       socket:{},
@@ -55,9 +55,8 @@ class Intake extends Component {
           this.setState({ user:{...this.state.user,userId: incoming.id }});
           break;
         case 'updateCount':
-          if (incoming.count < this.state.queueSize) {
-            this.setState({queueSize: incoming.count});
-          }
+          console.log(incoming.count);
+          this.setState({queueSize: incoming.count});
           break;
         case 'startChat':
           if (incoming.id === this.state.user.userId) {
@@ -110,10 +109,10 @@ class Intake extends Component {
     );
   };
 
-
   setPageIndex = index => {
     this.setState({ pageIndex: index });
   };
+
   pageHandler = () => {
     const { age, ageRange } = this.state.user;
     if (age === 0 && ageRange === 0) {

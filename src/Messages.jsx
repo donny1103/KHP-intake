@@ -3,9 +3,9 @@ import uuidv4 from 'uuid/v4';
 
 class Messages extends Component {
 
-  constructor(props){
-    super(props);
-  }
+  // constructor(props){
+  //   super(props);
+  // }
 
   scrollToBottom = () => {
     this.messagesEnd.scrollIntoView({ behavior: "smooth" });
